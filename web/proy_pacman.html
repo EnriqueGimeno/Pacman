@@ -15,6 +15,7 @@
                 height: 10em;
                 border: 3px blue ridge;
                 position: relative;
+                background-color: black;
             }
 
             #arriba, #abajo, #cerrado, #izquierda{
@@ -38,7 +39,9 @@
 
             #obstaculo2, #obstaculo3, #obstaculo4, #obstaculo5, #obstaculo6, #obstaculo7, #obstaculo8, #obstaculo9, #obstaculo10,  #obstaculo11{
                 position: absolute;
-                background-color: grey;
+                background-color: black;
+                border: 1px blue ridge;
+                border-radius: 5px;
             }
 
             #obstaculo1{
@@ -51,71 +54,71 @@
             }
 
             #obstaculo2{
-                width: 3em;
-                height: 1em;
+                width: 2.8em;
+                height: 0.8em;
                 top: 1em;
                 left: 1em;
             }
 
             #obstaculo3{
-                width:4em;
-                height: 1em;
+                width:3.8em;
+                height: 0.8em;
                 top: 1em;
                 left: 5em;
             }
 
             #obstaculo4{
-                width: 1em;
-                height: 1em;
+                width: 0.8em;
+                height: 0.8em;
                 top: 3em;
                 left: 8em;
             }
 
             #obstaculo5{
-                width: 1em;
-                height: 2em;
+                width: 0.8em;
+                height: 1.8em;
                 top: 3em;
                 left: 7em;
             }
 
             #obstaculo6{
-                width: 2em;
-                height: 1em;
+                width: 1.8em;
+                height: 0.8em;
                 top: 6em;
                 left: 7em;
             }
 
             #obstaculo7{
-                width: 1em;
-                height: 1em;
+                width: 0.8em;
+                height: 0.8em;
                 top: 7em;
                 left: 5em;
             }
 
             #obstaculo8{
-                width: 5em;
-                height: 1em;
+                width: 4.8em;
+                height: 0.8em;
                 top: 8em;
                 left: 4em;
             }
 
             #obstaculo9{
-                width: 1em;
-                height: 1em;
+                width: 0.8em;
+                height: 0.8em;
                 top: 8em;
                 left: 1em;
             }
 
             #obstaculo10{
-                width: 1em;
-                height: 5em;
+                width: 0.8em;
+                height: 4.8em;
                 top: 3em;
                 left: 2em;
             }
 
             #obstaculo11{
-                width: 1em;
-                height: 2em;
+                width: 0.8em;
+                height: 1.8em;
                 top: 5em;
             }
 
@@ -190,13 +193,13 @@
                               //alert(obstaculos[x+1][y]);
                               if (obstaculos[x + 1][y] != 1)
                               {
-                                  $('#pac').animate({"left": "+=1em"}, 500);
-                                  $('#cerrado').animate({opacity: 1}, 200, function() {
+                                  $('#pac').animate({"left": "+=1em"}, 400);
+                                  $('#cerrado').animate({opacity: 1}, 50, function() {
                                       $('#izquierda').css("opacity", "0");
                                       $('#arriba').css("opacity", "0");
                                       $('#abajo').css("opacity", "0");
                                       $('#derecha').css("opacity", "1");
-                                      $('#cerrado').animate({opacity: 0}, 200);
+                                      $('#cerrado').animate({opacity: 0}, 50);
                                   });
                                   x += 1;
                                   $('#equis').val(x);
@@ -211,13 +214,13 @@
                               if (obstaculos[x - 1][y] != 1)
                               {
 
-                                  $('#pac').animate({"left": "-=1em"}, 500);
-                                  $('#cerrado').animate({opacity: 1}, 200, function() {
+                                  $('#pac').animate({"left": "-=1em"}, 400);
+                                  $('#cerrado').animate({opacity: 1}, 50, function() {
                                       $('#derecha').css("opacity", "0");
                                       $('#arriba').css("opacity", "0");
                                       $('#abajo').css("opacity", "0");
                                       $('#izquierda').css("opacity", "1");
-                                      $('#cerrado').animate({opacity: 0}, 200);
+                                      $('#cerrado').animate({opacity: 0}, 50);
                                   });
                                   x -= 1;
                                   $('#equis').val(x);
@@ -232,13 +235,13 @@
                           {
                               if (obstaculos[x][y + 1] != 1)
                               {
-                                  $('#pac').animate({"top": "+=1em"}, 500);
-                                  $('#cerrado').animate({opacity: 1}, 200, function() {
+                                  $('#pac').animate({"top": "+=1em"}, 400);
+                                  $('#cerrado').animate({opacity: 1}, 50, function() {
                                       $('#izquierda').css("opacity", "0");
                                       $('#arriba').css("opacity", "0");
                                       $('#derecha').css("opacity", "0");
                                       $('#abajo').css("opacity", "1");
-                                      $('#cerrado').animate({opacity: 0}, 200);
+                                      $('#cerrado').animate({opacity: 0}, 50);
                                   });
                                   y += 1;
                                   $('#ygriega').val(y);
@@ -253,13 +256,13 @@
                           {
                               if (obstaculos[x][y - 1] != 1)
                               {
-                                  $('#pac').animate({"top": "-=1em"}, 500);
-                                  $('#cerrado').animate({opacity: 1}, 200, function() {
+                                  $('#pac').animate({"top": "-=1em"}, 400);
+                                  $('#cerrado').animate({opacity: 1}, 50, function() {
                                       $('#izquierda').css("opacity", "0");
                                       $('#derecha').css("opacity", "0");
                                       $('#abajo').css("opacity", "0");
                                       $('#arriba').css("opacity", "1");
-                                      $('#cerrado').animate({opacity: 0}, 200);
+                                      $('#cerrado').animate({opacity: 0}, 50);
                                   });
                                   y -= 1;
                                   $('#ygriega').val(y);
@@ -275,7 +278,24 @@
 $("#ghost1").function()
 {
 setInterval(function(){
-    alert("Hello")},3000);
+    switch("#ghost1"){
+case 0: 
+if(x<1)
+x+=10;
+break;
+case 1:
+if(x>0) 
+x-=10;
+break;
+case 2: 
+if(y<1)
+y+=10;
+break;
+case 3: 
+if(y>0)
+y-=10;
+break;
+}},3000);
 }
 
 
